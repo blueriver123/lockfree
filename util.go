@@ -35,11 +35,15 @@ func init() {
 	}
 }
 
-//go:linkname procyield runtime.procyield
-func procyield(cycles uint32)
+func procyield(cycles uint32) {
+    for i := uint32(0); i < cycles; i++ {
+        runtime.Gosched()
+    }
+}
 
-//go:linkname osyield runtime.osyield
-func osyield()
+func osyield() {
+    runtime.Gosched()
+}
 
 // byteArrayPointerWithUint8 创建uint8切片，返回其对应实际内容（Data）的指针
 func byteArrayPointerWithUint8(capacity int) unsafe.Pointer {
