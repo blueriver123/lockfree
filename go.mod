@@ -1,4 +1,4 @@
-module github.com/bruceshao/lockfree
+module github.com/blueriver123/lockfree
 
 go 1.18
 
